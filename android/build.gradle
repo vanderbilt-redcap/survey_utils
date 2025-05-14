@@ -25,7 +25,14 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
+    // ✅ Required for AGP 7.0+
+    namespace 'edu.vandebilt.survey_utils'
+
     compileSdkVersion 31
+
+    defaultConfig {
+        minSdkVersion 16
+    }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -38,9 +45,5 @@ android {
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
-    }
-
-    defaultConfig {
-        minSdkVersion 16
     }
 }
